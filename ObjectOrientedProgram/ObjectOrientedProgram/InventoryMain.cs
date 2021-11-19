@@ -1,33 +1,66 @@
 ﻿using Newtonsoft.Json;
+using ObjectOrientedProgram;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace OOPsJSon
+namespace Objectorientedprogram
 {
-    class InventoryMain
+    public class InventoryMain
     {
-        public void DisplayData(string filepath)
+        List<InventoryModel> riceList;
+        List<InventoryModel> wheatList;
+        List<InventoryModel> pulsesList;
+        public void ReadData(string filepath)
         {
             try
             {
-                using (StreamReader r = new StreamReader(filepath))
-                {
-                    var json = r.ReadToEnd();
-                    var items = JsonConvert.DeserializeObject<List<InventoryModel>>(json);
-                    Console.WriteLine("Name\tWeight\tPrice");
-                    foreach (var item in items)
-                    {
-                        Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}", item.Name, item.Weight, item.Price);
-                    }
-                }
+                using StreamReader r = new StreamReader(filepath);
+                var json = r.ReadToEnd();
+                InventoryFactory item = JsonConvert.DeserializeObject<InventoryFactory>((string)json);
+                riceList = item.Rice;
+                wheatList = item.Wheat;
+                pulsesList = item.Pulses;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
+
+        public void DisplayData(string state)
+        {
+            if (state == "Rice")
+            {
+                Console.WriteLine("Name\tWeight\tPrice\tTotal\n");
+                foreach (var item in riceList)
+                {
+                    Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}" + "\t" + "{3}", item.Name, item.Weight, item.Price, item.Price * item.Weight);
+                }
+            }
+
+            if (state == "Wheat")
+            {
+                Console.WriteLine("Name\tWeight\tPrice\tTotal\n");
+                foreach (var item in wheatList)
+                {
+                    Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}" + "\t" + "{3}", item.Name, item.Weight, item.Price, item.Price * item.Weight);
+                }
+            }
+
+            if (state == "Pulses")
+            {
+                Console.WriteLine("Name\tWeight\tPrice\tTotal\n");
+                foreach (var item in pulsesList)
+                {
+                    Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}" + "\t" + "{3}", item.Name, item.Weight, item.Price, item.Price * item.Weight);
+                }
+            }
+        }
     }
 
+   
 }

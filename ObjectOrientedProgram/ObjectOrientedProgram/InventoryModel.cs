@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OOPsJSon
+namespace ObjectOrientedProgram
 {
     class InventoryModel
     {
