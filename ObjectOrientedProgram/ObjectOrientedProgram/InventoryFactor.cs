@@ -1,4 +1,4 @@
-﻿using ObjectOrientedProgram;
+﻿using Objectorientedprogram;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +9,12 @@ namespace Objectorientedprogram
 {
     internal class InventoryFactory
     {
-        public List<InventoryModel> Rice { get; set; }
-        public List<InventoryModel> Wheat { get; set; }
-        public List<InventoryModel> Pulses { get; set; }
+        public List<InventoryStockModel> Rice { get; set; }
+        public List<InventoryStockModel> Wheat { get; set; }
+        public List<InventoryStockModel> Pulses { get; set; }
+
+        public class InventoryStockModel
+        {
+        }
     }
 }

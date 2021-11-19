@@ -1,0 +1,17 @@
+﻿[
+  {
+    "Stockname": "ITC",
+    "Numberofshare": 14,
+    "Shareprice": 1800
+  },
+  {
+    "Stockname": "INFY",
+    "Numberofshare": 8,
+    "Shareprice": 1200
+  },
+  {
+    "Stockname": "INFOSYS",
+    "Numberofshare": 16,
+    "Shareprice": 1780
+  }
+]
